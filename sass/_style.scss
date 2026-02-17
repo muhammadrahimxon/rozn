@@ -1,0 +1,49 @@
+/* header styles */
+.header {
+  background-color: $bg-white;
+  box-shadow: $shadow-md;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  padding: 10px 0;
+
+  .logo {
+    font-size: $font-md;
+    font-weight: $fw-bold;
+    color: $text-black;
+  }
+}
+
+.nav-item {
+  a:not(.btn-primary) {
+    color: $text-charcoal-deep;
+    font-size: $font-md;
+    font-weight: $fw-regular;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: $gradient-green;
+      transition: $trans-standard;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}
+
+.menu-icon {
+  display: none;
+  width: 24px;
+  height: 24px;
+}

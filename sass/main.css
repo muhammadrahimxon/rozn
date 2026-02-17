@@ -1,3 +1,8 @@
+/* RESET */
+/* FLEX CENTER */
+/* CONTAINER */
+/* SECTION PADDING */
+/* BUTTON */
 /* colors */
 /* linear gradients */
 /* font family */
@@ -6,4 +11,48 @@
 /* line heights */
 /* box shadow */
 /* transitions */
-/* border radius *//*# sourceMappingURL=main.css.map */
+/* border radius */
+/* header styles */
+.header {
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(44, 43, 53, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  padding: 10px 0;
+}
+.nav .logo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.nav-item a:not(.btn-primary) {
+  color: #2C2B35;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+}
+.nav-item a:not(.btn-primary)::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #43A548 7%, #52E259 100%);
+  transition: 0.3s ease-in-out;
+}
+.nav-item a:not(.btn-primary):hover::before {
+  width: 100%;
+}
+
+.menu-icon {
+  display: none;
+  width: 24px;
+  height: 24px;
+}/*# sourceMappingURL=main.css.map */
