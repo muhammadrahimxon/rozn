@@ -1,0 +1,24 @@
+{
+  "name": "rozn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhammadrahimxon/rozn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/muhammadrahimxon/rozn/issues"
+  },
+  "homepage": "https://github.com/muhammadrahimxon/rozn#readme",
+  "devDependencies": {
+    "sass": "^1.97.3"
+  }
+}
