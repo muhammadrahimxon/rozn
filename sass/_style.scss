@@ -8,7 +8,12 @@
 }
 
 .nav {
-  padding: 10px 0;
+  @include flex-center;   // display: flex + align-items: center + justify-content: center
+  @include container;     // max-width + margin + padding
+
+  /* Agar justify-between kerak bo‘lsa, o‘zgartirish: */
+  justify-content: space-between;
+
 
   .logo {
     font-size: $font-md;
