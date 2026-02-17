@@ -1,54 +1,118 @@
-/* header styles */
+// 2. HEADER SECTION
 .header {
-  background-color: $bg-white;
-  box-shadow: $shadow-md;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    width: 100%; // To'liq kenglik uchun
+    background-color: $bg-white;
+    border-bottom: 1px solid $bg-gray-light;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: $trans-standard;
 
-.nav {
-  @include flex-center;   // display: flex + align-items: center + justify-content: center
-  @include container;     // max-width + margin + padding
+    // HTMLda <nav class="nav"> bo'lishi kerak
+    .nav {
+        @include container; 
+        @include flex-center; 
+        justify-content: space-between;
+        height: 70px; // O'rtacha header balandligi
 
-  /* Agar justify-between kerak bo‘lsa, o‘zgartirish: */
-  justify-content: space-between;
+        // LOGO QISMI
+        .logo {
+            display: flex; // Mixin o'rniga oddiy flex ham bo'ladi
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
 
+            img {
+                width: 32px;
+                height: auto;
+                display: block;
+            }
 
-  .logo {
-    font-size: $font-md;
-    font-weight: $fw-bold;
-    color: $text-black;
-  }
-}
+            .size {
+                font-size: 20px;
+                font-weight: $fw-bold;
+                color: $text-black;
+                letter-spacing: -0.5px;
+                line-height: 1;
+            }
+        }
 
-.nav-item {
-  a:not(.btn-primary) {
-    color: $text-charcoal-deep;
-    font-size: $font-md;
-    font-weight: $fw-regular;
-    position: relative;
+        // DESKTOP MENYU
+        .nav-items {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -6px;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      background: $gradient-green;
-      transition: $trans-standard;
+            @include media(992px) {
+                display: none; 
+            }
+
+            .nav-item {
+                a {
+                    text-decoration: none;
+                    color: $text-charcoal-deep;
+                    font-size: $font-md;
+                    font-weight: $fw-medium;
+                    transition: $trans-standard;
+
+                    &:hover {
+                        color: $text-green-600;
+                    }
+                }
+            }
+        }
+
+        // ACTIONS
+        .header__actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .btn-primary {
+                @include btn($gradient-green, $text-white);
+                display: inline-block;
+                text-decoration: none;
+                font-size: $font-sm;
+                
+                @include media(992px) {
+                    display: none; 
+                }
+            }
+
+            // BURGER
+            .menu-icon {
+                display: none;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 5px;
+
+                @include media(992px) {
+                    display: flex; // Block emas, flex qildik
+                    flex-direction: column;
+                    gap: 6px;
+                }
+
+                span {
+                    display: block;
+                    width: 26px;
+                    height: 2px;
+                    background-color: $text-charcoal-deep;
+                    border-radius: 2px;
+                    transition: $trans-standard;
+
+                    &:last-child {
+                        width: 18px;
+                        align-self: flex-end;
+                    }
+                }
+
+                &:hover span {
+                    background-color: $text-green-600;
+                    width: 26px;
+                }
+            }
+        }
     }
-
-    &:hover::before {
-      width: 100%;
-    }
-  }
-}
-
-.menu-icon {
-  display: none;
-  width: 24px;
-  height: 24px;
 }

@@ -1,90 +1,50 @@
+@mixin container-max($max-width: 1200px) {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $max-width;
+  padding: 0 1rem;
+}
 /* RESET */
-@include reset;
+@mixin reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
 
-/* HEADER */
-.header {
-  background-color: $bg-white;
-  box-shadow: $shadow-md;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* FLEX CENTER */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  /* NAV */
-  .nav {
-    @include flex-center; // flex + center
-    @include container;    // container mixin
-    justify-content: space-between;
-    padding: 10px 0;
+/* CONTAINER */
+@mixin container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-    /* LOGO */
-    .logo {
-      @include flex-center;
-      gap: 10px;
-      font-size: $font-md;
-      font-weight: $fw-bold;
-      color: $text-black;
+/* SECTION PADDING */
+@mixin section {
+  padding: 80px 0;
+}
 
-      img {
-        width: 32px;
-        height: auto;
-      }
+/* BUTTON */
+@mixin btn($bg, $color) {
+  background: $bg;
+  color: $color;
+  padding: 12px 28px;
+  border-radius: $br-40;
+  font-weight: $fw-medium;
+  cursor: pointer;
+  transition: $trans-button;
 
-      .size {
-        color: $text-charcoal-deep;
-      }
-    }
-
-    /* NAV ITEMS */
-    .nav-items {
-      list-style: none;
-      @include flex-center;
-      gap: 20px;
-
-      .nav-item {
-        a {
-          color: $text-charcoal-deep;
-          font-size: $font-md;
-          font-weight: $fw-regular;
-          position: relative;
-          transition: $trans-standard;
-
-          &:not(.btn-primary)::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -6px;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: $gradient-green;
-            transition: $trans-standard;
-          }
-
-          &:not(.btn-primary):hover::before {
-            width: 100%;
-          }
-        }
-      }
-    }
-
-    /* BUTTON */
-    .btn-primary {
-      @include btn($gradient-green, $text-white);
-    }
-
-    /* MENU ICON */
-    .menu-icon {
-      display: none;
-      background: none;
-      border: none;
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
   }
 }
