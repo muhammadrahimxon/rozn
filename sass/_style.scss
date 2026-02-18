@@ -8,12 +8,13 @@
     z-index: 1000;
     transition: $trans-standard;
 
-    // HTMLda <nav class="nav"> bo'lishi kerak
+  
     .nav {
         @include container; 
         @include flex-center; 
+       
         justify-content: space-between;
-        height: 70px; // O'rtacha header balandligi
+        height: 70px;
 
         // LOGO QISMI
         .logo {
@@ -43,7 +44,7 @@
             align-items: center;
             gap: 25px;
             list-style: none;
-
+            margin-left: 400px;
             @include media(992px) {
                 display: none; 
             }

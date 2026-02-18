@@ -48,3 +48,11 @@
     transform: translateY(-2px);
   }
 }
+// Media query uchun mixin
+@mixin media($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+// Boshqa mixinlaringiz (reset, flex-center, btn) shu yerdan davom etsin...
